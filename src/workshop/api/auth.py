@@ -24,11 +24,11 @@ def sign_up(
 
 @router.post('/sign-in', response_model=Token)
 def sign_in(
-        form_date: OAuth2PasswordRequestForm = Depends(),
+        form_data: OAuth2PasswordRequestForm = Depends(),
         service: AuthService = Depends()):
     return service.authenticate_user(
-        form_date.username,
-        form_date.password,
+        form_data.username,
+        form_data.password,
     )
 
 
